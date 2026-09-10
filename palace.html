@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Palace &amp; the Och'Idoma — Idoma Nation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .palace-photos{padding:5rem 0; background:var(--page-bg);}
+  .photo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem;}
+  .ptile{position:relative; border-radius:6px; overflow:hidden; aspect-ratio:4/3; background:var(--ink-soft);}
+  .ptile img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .3s ease;}
+  .ptile:hover img{transform:scale(1.05);}
+  .ptile .fallback{position:absolute; inset:0;}
+  .p1 .fallback{background:repeating-linear-gradient(100deg, var(--red) 0 18px, var(--red-deep) 18px 36px);}
+  .p2 .fallback{background:repeating-linear-gradient(70deg, var(--ink) 0 16px, #322723 16px 32px);}
+  .p3 .fallback{background:repeating-linear-gradient(90deg, var(--blue) 0 14px, var(--blue-soft) 14px 28px);}
+  .ptile-cap{
+    position:relative; z-index:1; padding:.8rem 1rem; margin-top:auto;
+    background:linear-gradient(to top, rgba(0,0,0,.6), transparent); color:var(--ivory);
+    font-size:.85rem; font-weight:600; align-self:flex-end; width:100%;
+  }
+  .ptile{display:flex; flex-direction:column; justify-content:flex-end;}
+
+  .ruler{padding:5rem 0; background:var(--page-bg);}
+  .ruler .wrap{display:grid; grid-template-columns:.85fr 1.15fr; gap:3.2rem; align-items:start;}
+  .portrait-frame{
+    aspect-ratio:4/5; border-radius:6px; overflow:hidden; position:relative;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(163,30,41,.5), transparent 55%),
+      radial-gradient(circle at 75% 75%, rgba(28,74,99,.45), transparent 50%),
+      var(--ink);
+  }
+  .portrait-frame .initials{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-size:5rem; color:rgba(242,234,217,.85); font-weight:600;
+  }
+  .portrait-frame img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .portrait-frame .cap{
+    position:absolute; left:0; right:0; bottom:0; padding:1rem 1.2rem;
+    background:linear-gradient(to top, rgba(0,0,0,.65), transparent); color:var(--ivory); font-size:.82rem;
+  }
+  .ruler-title{color:var(--red); font-weight:600; font-size:.9rem; margin-bottom:.5rem; display:block;}
+  .ruler h1{font-size:clamp(1.9rem,3vw,2.6rem); line-height:1.15;}
+  .ruler .honorifics{color:var(--text-mute); font-size:.95rem; margin-top:.5rem;}
+  .ruler p.bio{margin-top:1.3rem; font-size:1.02rem; color:var(--text-soft); max-width:62ch;}
+  .ruler-facts{display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.8rem;}
+  .ruler-facts .f{background:var(--surface); border-radius:5px; padding:1rem 1.2rem;}
+  .ruler-facts .f b{display:block; font-size:.78rem; color:var(--red); font-weight:700; margin-bottom:.25rem;}
+  .ruler-facts .f span{font-size:.92rem; color:var(--text-soft);}
+
+  .succession{padding:5rem 0; background:var(--ink); color:var(--ivory);}
+  .succession-list{margin-top:2.4rem; display:flex; flex-direction:column;}
+  .succession-row{
+    display:grid; grid-template-columns:70px 1.4fr 1fr; gap:1.4rem; align-items:center;
+    padding:1.2rem 0; border-bottom:1px solid rgba(242,234,217,.14);
+  }
+  .succession-row:last-child{border-bottom:none;}
+  .succession-row.current{ background:rgba(163,30,41,.14); border-radius:6px; padding:1.2rem 1.2rem; margin:0 -1.2rem; }
+  .succession-num{
+    font-family:var(--font-display); font-size:1.6rem; color:var(--red-bright); font-weight:600;
+  }
+  .succession-row h4{font-family:var(--font-display); font-size:1.1rem; margin:0 0 .2rem; color:var(--ivory);}
+  .succession-row .role{font-size:.85rem; color:var(--ivory-dim);}
+  .succession-row .years{font-size:.9rem; color:var(--blue-soft); font-weight:600; text-align:right;}
+
+  .visit{padding:5.5rem 0; background:var(--surface);}
+  .visit .wrap{display:grid; grid-template-columns:.9fr 1.1fr; gap:3.5rem;}
+  .visit h2{font-size:clamp(1.8rem,2.6vw,2.4rem); max-width:16ch;}
+  .visit p.lede{max-width:44ch; margin-top:1rem; color:var(--text-soft); font-size:1.02rem;}
+  .visit-points{margin-top:1.8rem; display:flex; flex-direction:column; gap:.9rem;}
+  .visit-points li{display:flex; gap:.7rem; font-size:.95rem; color:var(--text-soft);}
+  .visit-points svg{flex:none; margin-top:.2rem;}
+  .protocol-note{background:var(--ink); color:var(--ivory-dim); border-radius:6px; padding:1.3rem 1.5rem; margin-top:1.8rem; font-size:.88rem;}
+  .protocol-note strong{color:var(--ivory);}
+
+  @media (max-width:900px){
+    .ruler .wrap{grid-template-columns:1fr;}
+    .visit .wrap{grid-template-columns:1fr;}
+    .succession-row{grid-template-columns:44px 1fr; row-gap:.3rem;}
+    .succession-row .years{grid-column:2; text-align:left;}
+  }
+  .page-hero.palace-hero{
+    background:
+      linear-gradient(100deg, rgba(15,11,10,.9) 0%, rgba(15,11,10,.62) 50%, rgba(15,11,10,.4) 100%),
+      url('images/palace/building-1.jpg') center 60%/cover no-repeat;
+  }
+  .page-hero.palace-hero::before{ content:none; }
+  .page-hero.palace-hero::after{
+    content:''; position:absolute; top:0; right:0; bottom:0; width:8px; background:var(--stripe-v);
+  }
+  .page-hero .hero-credit{
+    position:absolute; right:1.75rem; bottom:1.4rem; z-index:1;
+    background:rgba(15,11,10,.55); color:var(--ivory-dim); font-size:.78rem;
+    padding:.5rem .8rem; border-radius:3px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 44 44" fill="none">
+        <circle cx="22" cy="22" r="21" stroke="#C22A32" stroke-width="2"/>
+        <path d="M22 6 L22 38 M6 22 L38 22" stroke="#1C4A63" stroke-width="1.4"/>
+        <path d="M22 12 L28 22 L22 32 L16 22 Z" fill="#F2EAD9"/>
+      </svg>
+      <span class="brand-name">Idoma <em>Nation</em></span>
+    </a>
+    <nav class="site-nav" id="siteNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="palace.html" class="active">The Palace</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#contribute" class="nav-cta">Contribute</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" stroke="#F2EAD9" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="#F2EAD9" stroke-width="1.6"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="#F2EAD9" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero palace-hero">
+    <div class="wrap">
+      <span class="kicker">The throne of Idoma land</span>
+      <h1>The Palace of the Och'Idoma, Otukpo</h1>
+      <p class="lede">Since colonial administration, one palace at Otukpo has held Idoma land's twenty-two communities together under a single traditional council. Here's who sits on that throne today, who came before, and how to request a visit.</p>
+    </div>
+    <div class="hero-credit">A palace building in Idoma land — please confirm this caption before publishing</div>
+  </section>
+
+  <div class="weave"></div>
+
+  <section class="ruler">
+    <div class="wrap">
+      <div>
+        <div class="portrait-frame stripe-top">
+          <div class="initials">EO</div>
+          <img src="images/palace/ochidoma-portrait.jpg" alt="HRM Agaba'Idu Elaigwu Odogbo John, the reigning Och'Idoma" onerror="this.style.display='none'">
+          <div class="cap">HRM Agaba'Idu Elaigwu Odogbo John, the reigning Och'Idoma</div>
+        </div>
+      </div>
+      <div>
+        <span class="ruler-title">5th Och'Idoma · Paramount Ruler of the Idoma Nation</span>
+        <h1>HRM Agaba'Idu Elaigwu Odogbo John</h1>
+        <div class="honorifics">Ph.D · Chairman, Idoma Area Traditional Council</div>
+        <p class="bio">Installed as the 5th Och'Idoma on 30 June 2022, succeeding HRH Agabaidu Elias Ikoyi Obekpa. He was selected by Idoma kingmakers in December 2021 and presented to the Benue State Government before his coronation. Since taking the throne, he has led the Idoma Area Traditional Council from the palace at Otukpo, delivered annual New Year broadcasts to the Idoma nation, and convened gatherings such as the Idoma National Peace and Unity Symposium and a Royal Banquet in Abuja aimed at strengthening unity across Idoma communities.</p>
+        <p class="bio">In 2026 he inaugurated the boards steering the <strong>Idoma Division Centenary Plus Celebration</strong>, marking 103 years since the Idoma Division was formed in 1923 — describing the milestone as a moment to document Idoma heritage and chart the next century.</p>
+        <div class="ruler-facts">
+          <div class="f"><b>Installed</b><span>30 June 2022</span></div>
+          <div class="f"><b>Seat</b><span>Och'Idoma Palace, Otukpo</span></div>
+          <div class="f"><b>Predecessor</b><span>HRH Agabaidu Elias Ikoyi Obekpa</span></div>
+          <div class="f"><b>Role</b><span>Chairman, Idoma Area Traditional Council</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="weave-thin"></div>
+
+  <section class="palace-photos">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2rem;">
+        <div>
+          <span class="kicker">Palace grounds</span>
+          <h2>Pictures from Otukpo</h2>
+        </div>
+        <a href="index.html#contribute" class="see-all">Submit a photo</a>
+      </div>
+      <div class="photo-grid">
+        <div class="ptile p1"><div class="fallback"></div><img src="images/palace/building-1.jpg" alt="A palace building in Otukpo" onerror="this.style.display='none'"><div class="ptile-cap">The palace building</div></div>
+        <div class="ptile p2"><div class="fallback"></div><img src="images/palace/chapel-1.jpg" alt="Chapel in Idoma land" onerror="this.style.display='none'"><div class="ptile-cap">The chapel</div></div>
+        <div class="ptile p3"><div class="fallback"></div><img src="images/palace/ceremony-1.jpg" alt="The Och'Idoma addressing the community" onerror="this.style.display='none'"><div class="ptile-cap">A public address</div></div>
+      </div>
+      <p class="gallery-note">Real photos appear automatically once you add files to <code>/images/palace/</code> using the filenames above — placeholders hold their place until then. <strong>Please confirm</strong> these building captions are accurate before publishing — swap them for verified ones if needed.</p>
+    </div>
+  </section>
+
+  <div class="weave-thin"></div>
+
+  <section class="succession">
+    <div class="wrap">
+      <div class="section-head on-dark" style="margin-bottom:0;">
+        <div>
+          <span class="kicker">Since 1948</span>
+          <h2>The Och'Idomas of Idoma land</h2>
+        </div>
+      </div>
+      <div class="succession-list">
+        <div class="succession-row">
+          <span class="succession-num">1st</span>
+          <div><h4>Agabaidu Ogiri Oko</h4><span class="role">Och'Idoma</span></div>
+          <span class="years">1948 – 1959</span>
+        </div>
+        <div class="succession-row">
+          <span class="succession-num">2nd</span>
+          <div><h4>Abraham Ajene Okpabi</h4><span class="role">Och'Idoma, of Igede descent</span></div>
+          <span class="years">1960 – 1995</span>
+        </div>
+        <div class="succession-row">
+          <span class="succession-num">3rd</span>
+          <div><h4>Agabaidu Edwin Ogbu</h4><span class="role">Och'Idoma</span></div>
+          <span class="years">1996 – 1997</span>
+        </div>
+        <div class="succession-row">
+          <span class="succession-num">4th</span>
+          <div><h4>Agabaidu Elias Ikoyi Obekpa</h4><span class="role">Och'Idoma</span></div>
+          <span class="years">1996/97 – Oct 2021</span>
+        </div>
+        <div class="succession-row current">
+          <span class="succession-num">5th</span>
+          <div><h4>Agaba'Idu Elaigwu Odogbo John</h4><span class="role">Reigning Och'Idoma</span></div>
+          <span class="years">2022 – present</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="weave-thin"></div>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div>
+        <span class="kicker" style="color:var(--red); font-weight:600; font-size:.9rem;">Visit the palace</span>
+        <h2>Request a visitation to the Och'Idoma Palace</h2>
+        <p class="lede">Whether you're planning a courtesy visit, a cultural delegation, or a homecoming trip during the centenary year, use this form to send a request through to the palace.</p>
+        <ul class="visit-points">
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9.5 L7 13.5 L15 4.5" stroke="#A31E29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Individual, family and diaspora visits</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9.5 L7 13.5 L15 4.5" stroke="#A31E29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Group and delegation courtesy calls</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9.5 L7 13.5 L15 4.5" stroke="#A31E29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Media and research requests</li>
+        </ul>
+        <div class="protocol-note">
+          <strong>Before this goes live:</strong> this form doesn't send anywhere yet — it's a front-end template. Connect it to the palace's actual protocol office (email or phone) and confirm accepted visiting days before publishing, so requests reach someone real.
+        </div>
+      </div>
+
+      <div class="form-card stripe-top">
+        <div class="confirm" id="confirmMsgVisit"></div>
+        <form id="visitForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="vname">Full name</label>
+              <input id="vname" type="text" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="vphone">Phone or email</label>
+              <input id="vphone" type="text" placeholder="How the palace can reach you" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="vtype">Type of visit</label>
+              <select id="vtype">
+                <option>Individual / family visit</option>
+                <option>Group or delegation</option>
+                <option>Media or research</option>
+                <option>Diaspora homecoming</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="vdate">Preferred date</label>
+              <input id="vdate" type="date">
+            </div>
+          </div>
+          <div class="field">
+            <label for="vparty">Number in your party</label>
+            <input id="vparty" type="number" min="1" placeholder="e.g. 4">
+          </div>
+          <div class="field">
+            <label for="vmessage">Purpose of visit</label>
+            <textarea id="vmessage" placeholder="Briefly tell the palace what this visit is for" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send visitation request</button>
+          <p class="form-note">Demo form — requests aren't sent anywhere yet. Wire this up to a real inbox before publishing.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="weave"></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-name">Idoma <em style="font-style:normal;color:#C22A32">Nation</em></span>
+        <p>An independent, community-run home for Idoma news, culture and photography — built by and for the people of Idoma land.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="index.html#news">News</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="palace.html">The Palace</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Community</h5>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Submission guidelines</a></li>
+          <li><a href="#">Advertise</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col newsletter">
+        <h5>Stay updated</h5>
+        <input type="email" placeholder="Your email address">
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Idoma Nation. Community-built — not affiliated with any government or traditional authority.</span>
+      <span>Palace details sourced from public reporting — please verify before publishing.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  wireDemoForm('visitForm', 'confirmMsgVisit', (form) => {
+    const name = form.querySelector('#vname').value || 'friend';
+    return 'Thank you, ' + name + ' — your visitation request has been noted. (Demo only — connect this to the palace\'s real protocol contact before publishing.)';
+  });
+</script>
+</body>
+</html>

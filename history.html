@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History of the Idoma Nation — Idoma Nation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .history-intro{padding:5rem 0 2rem; background:var(--page-bg);}
+  .history-intro .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:3rem;}
+  .history-intro p{font-size:1.05rem; color:var(--text-soft); max-width:56ch;}
+  .fact-card{ background:var(--surface); border-radius:6px; padding:1.8rem 1.9rem; align-self:start; }
+  .fact-card h4{font-family:var(--font-display); font-size:1.15rem; margin-bottom:1rem;}
+  .fact-card dl{display:grid; grid-template-columns:auto 1fr; gap:.5rem 1rem; margin:0; font-size:.92rem;}
+  .fact-card dt{font-weight:600; color:var(--red);}
+  .fact-card dd{margin:0; color:var(--text-soft);}
+
+  .timeline-section{padding:2rem 0 5.5rem; background:var(--page-bg);}
+  .timeline-section .wrap{max-width:820px;}
+
+  .origins-note{background:var(--surface-2); border-radius:6px; padding:1.6rem 1.9rem; margin-top:1rem; font-size:.92rem; color:var(--text-soft);}
+  .origins-note strong{color:var(--text-body);}
+
+  .lineages{padding:5rem 0; background:var(--ink); color:var(--ivory);}
+  .lineage-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:2.4rem;}
+  .lineage-card{background:var(--ink-soft); border-radius:6px; padding:1.6rem 1.7rem;}
+  .lineage-card h4{font-family:var(--font-display); font-size:1.1rem; margin-bottom:.5rem;}
+  .lineage-card p{margin:0; font-size:.9rem; color:var(--ivory-dim);}
+
+  .centenary{padding:5rem 0; background:var(--red); color:var(--ivory);}
+  .centenary .wrap{display:grid; grid-template-columns:1fr auto; align-items:center; gap:2.5rem;}
+  .centenary h2{font-size:clamp(1.6rem,2.4vw,2.2rem); max-width:22ch;}
+  .centenary p{max-width:52ch; margin-top:.9rem; color:rgba(242,234,217,.9);}
+
+  @media (max-width:900px){
+    .history-intro .wrap{grid-template-columns:1fr;}
+    .lineage-grid{grid-template-columns:1fr;}
+    .centenary .wrap{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 44 44" fill="none">
+        <circle cx="22" cy="22" r="21" stroke="#C22A32" stroke-width="2"/>
+        <path d="M22 6 L22 38 M6 22 L38 22" stroke="#1C4A63" stroke-width="1.4"/>
+        <path d="M22 12 L28 22 L22 32 L16 22 Z" fill="#F2EAD9"/>
+      </svg>
+      <span class="brand-name">Idoma <em>Nation</em></span>
+    </a>
+    <nav class="site-nav" id="siteNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="history.html" class="active">History</a></li>
+        <li><a href="palace.html">The Palace</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#contribute" class="nav-cta">Contribute</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" stroke="#F2EAD9" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="#F2EAD9" stroke-width="1.6"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="#F2EAD9" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="kicker">History &amp; origins</span>
+      <h1>Five centuries from Apa to Otukpo</h1>
+      <p class="lede">Idoma history is carried mostly through oral tradition — Alekwu poetry, migration lore, and the memory of the elders — rather than written record. Here's what that tradition, and the documentary evidence around it, tells us.</p>
+    </div>
+  </section>
+
+  <div class="weave"></div>
+
+  <section class="history-intro">
+    <div class="wrap">
+      <div>
+        <p>Idoma oral tradition traces the people's origin to <strong>Apa</strong> (also remembered as Beipi), a cradle land associated with the <strong>Kwararafa confederacy</strong> in the Benue Valley, in what is now Taraba State. Kwararafa was never a single Idoma kingdom — it was a multi-ethnic confederacy that also gave rise to the Igala, Ebira, and Jukun peoples, among others.</p>
+        <p>By tradition, the Idoma left Apa because of growing insecurity: internal power struggles and outside pressure — some accounts point to conflict during the reign of Bornu's Ali Ghaji in the late 1400s — broke Kwararafa apart. What followed was not one migration but several, stretched across roughly two centuries, as different Idoma-speaking groups moved south and settled the Lower Benue in waves.</p>
+        <p>Along the way, and after settling, many Idoma communities intermarried and exchanged customs with neighbouring Igala and Igbo groups — which is part of why Idoma language, art and ritual carry traces of both.</p>
+      </div>
+      <div class="fact-card">
+        <h4>At a glance</h4>
+        <dl>
+          <dt>Ancestral land</dt><dd>Apa (Beipi), Kwararafa confederacy</dd>
+          <dt>Migration era</dt><dd>c. 1500s – 1700s</dd>
+          <dt>Present homeland</dt><dd>Benue South, Nigeria — c. 9 local government areas</dd>
+          <dt>Language family</dt><dd>Idomoid, Volta–Niger</dd>
+          <dt>Neighbours &amp; kin</dt><dd>Igede, Igala, Tiv, Agatu, Cross River groups</dd>
+        </dl>
+        <div class="origins-note">
+          <strong>A note on sources:</strong> much of this history survives as oral tradition rather than written record, and scholars disagree on some details — including whether all Idoma communities descend from a single founding figure. This page reflects the accounts most widely repeated in Idoma oral history and published research, not a single settled record.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.8rem;">
+        <div>
+          <span class="kicker">Timeline</span>
+          <h2>From Kwararafa to the Idoma Nation of today</h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="t-date">Before c. 1500</span>
+          <h3>Life in Apa, within Kwararafa</h3>
+          <p>Idoma ancestors are remembered as part of the Kwararafa confederacy, a multi-ethnic power in the Benue Valley that also included the ancestors of the Jukun, Igala and other neighbouring peoples.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-date">c. 1500s – 1600s</span>
+          <h3>Kwararafa breaks apart</h3>
+          <p>Internal conflict and dynastic disputes, worsened by outside pressure, fractured the confederacy. Idoma, Igala, Ebira and other groups began leaving Apa in successive waves rather than a single exodus.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-date">c. 1600s – 1700s</span>
+          <h3>Settlement of the Lower Benue</h3>
+          <p>Idoma-speaking groups spread south of the Benue River, founding the communities that make up Idoma land today. Oral tradition credits early migration leaders — remembered in some accounts as Idu (Iduh) — with founding lineages that became towns such as Otukpo, Adoka, Ugboju, Oglewu and Edumoga.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-date">1700s – 1800s</span>
+          <h3>Neighbours and intermarriage</h3>
+          <p>Sustained contact with Igala and Igbo communities brought intermarriage, trade, and an exchange of ritual and artistic style — visible today in Idoma masquerade, language, and decorative art.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-date">1923</span>
+          <h3>The Idoma Division is created</h3>
+          <p>British colonial administration formed the Idoma Division, bringing Idoma, Igede, Ufia and Akweya communities under one shared administrative structure for the first time — and introducing a paramount chieftaincy where a council of community elders had governed before.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-date">1948 – 1995</span>
+          <h3>The early Och'Idomas</h3>
+          <p>Agabaidu Ogiri Oko served as the first Och'Idoma (1948–1959). He was followed by Abraham Ajene Okpabi, of Igede descent, whose long tenure ran from 1960 to 1995.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-date">1976</span>
+          <h3>Benue State is created</h3>
+          <p>Idoma land became part of the newly created Benue State, and today makes up the greater part of what is now called the Benue South senatorial zone.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-date">1996 – 2021</span>
+          <h3>Continuity through change</h3>
+          <p>Edwin Ogbu and then Agabaidu Elias Ikoyi Obekpa held the Och'Idoma stool through this period, a time of steady institutional growth for the Idoma Area Traditional Council.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-date">2022 – today</span>
+          <h3>The reigning Och'Idoma</h3>
+          <p>HRM Agaba'Idu Elaigwu Odogbo John was installed as the 5th Och'Idoma on 30 June 2022. <a href="palace.html" style="color:var(--red); font-weight:600;">Read more about the current palace →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="weave-thin"></div>
+
+  <section class="lineages">
+    <div class="wrap">
+      <div class="section-head on-dark" style="margin-bottom:0;">
+        <div>
+          <span class="kicker">Oral tradition</span>
+          <h2>The founding lineages, as remembered</h2>
+          <p class="desc" style="margin-top:.8rem;">Some Idoma oral histories trace several present-day communities to the descendants of a single migration leader remembered as Idu. Scholars are careful to note this is one strand of tradition, not a settled record for every Idoma community.</p>
+        </div>
+      </div>
+      <div class="lineage-grid">
+        <div class="lineage-card stripe-top"><h4>Agabi</h4><p>Remembered as the line that founded Otukpo, today the seat of the Och'Idoma and the administrative heart of Idoma land.</p></div>
+        <div class="lineage-card stripe-top"><h4>Olinaogwu</h4><p>Associated with the founding of Adoka, one of the Idoma communities along the Benue's southern bank.</p></div>
+        <div class="lineage-card stripe-top"><h4>Eje</h4><p>Remembered in connection with Ugboju, part of the wider network of Kwararafa-descended settlements.</p></div>
+        <div class="lineage-card stripe-top"><h4>Edeh</h4><p>Linked in oral tradition to Oglewu, another of the founding-era Idoma communities.</p></div>
+        <div class="lineage-card stripe-top"><h4>Idum</h4><p>Associated with communities in the Adoka area, part of the same wave of southward settlement.</p></div>
+        <div class="lineage-card stripe-top"><h4>Edumoga</h4><p>Named in oral tradition among the communities founded during the Lower Benue settlement period.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="centenary">
+    <div class="wrap">
+      <div>
+        <span class="kicker" style="color:var(--ivory);">2026 — Idoma Division Centenary Plus</span>
+        <h2>Marking 103 years since the Idoma Division was formed</h2>
+        <p>Idoma land is marking a year-long centenary celebration through 2026, themed "Honouring Our Idoma Century, Advancing Benue South" — with cultural exhibitions, a diaspora homecoming, and a documented history project running through the year.</p>
+      </div>
+      <a href="index.html#news" class="btn btn-dark">Follow centenary news</a>
+    </div>
+  </section>
+
+</main>
+
+<div class="weave"></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-name">Idoma <em style="font-style:normal;color:#C22A32">Nation</em></span>
+        <p>An independent, community-run home for Idoma news, culture and photography — built by and for the people of Idoma land.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="index.html#news">News</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="palace.html">The Palace</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Community</h5>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Submission guidelines</a></li>
+          <li><a href="#">Advertise</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col newsletter">
+        <h5>Stay updated</h5>
+        <input type="email" placeholder="Your email address">
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Idoma Nation. Community-built — not affiliated with any government or traditional authority.</span>
+      <span>History summarised from oral tradition and published sources — corrections welcome.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
